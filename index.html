@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Plataforma html 5</title>
+</head>
+<body>
+  <div id="game">
+
+  </div>
+  <script src="js/preloadjs-0.1.0.min.js"></script>
+  <script src="js/kinetic-v4.3.2.min.js"></script>
+  <script src="js/plataforma.js"></script>
+  <script src="js/juego.js"></script>
+  <script src="js/moneda.js"></script>
+  <script src="js/llave.js"></script>
+  <script src="js/puerta.js"></script>
+  <script src="js/heroe.js"></script>
+  <script src="js/enemigo.js"></script>
+  <script src="js/main.js"></script>
+  <script>
+    var p;
+    var imgsAssets = ['Assets/Heroe.png','Assets/enemy.png','Assets/pattern.png','Assets/puerta.png','Assets/llave.png'];
+
+    window.addEventListener('load',function(){
+      p = new PreloadJS();
+      p.onProgress = progesoCarga;
+      cargar();
+    });
+
+    function cargar(){
+      while(imgsAssets.length > 0)
+      {
+        var url = imgsAssets.shift();
+        p.loadFile(url);
+      }
+    }
+    function progesoCarga(){
+      if(p.progress == 1)
+      {
+        nivelUno();
+      }
+    }
+  </script>
+
+
+</body>
+</html>
